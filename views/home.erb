@@ -1,0 +1,13 @@
+<main class="main">
+  <ol class="articles" start="<%= 30 * (page - 1) + 1 %>">
+    <% if articles.length == 0 %>
+      <p class="articles-warning">There are no more articles</p>
+    <% end %>
+    <% articles.each do |article| %>
+      <li><%= erb(:_article, locals: { article: article }) %></li>
+    <% end %>
+    <% if articles.length == 30 %>
+      <a class="articles-link" href="<%= "/#{path}?page=#{page + 1}" %>">More</a>
+    <% end %>
+  </ol>
+</main>

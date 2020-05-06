@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="header-content">
+    <a class="header-brand" href="/">
+      <img class="header-brand__logo" src="/img/logo.png" alt="Hacker News">
+      <h1 class="header-brand__title">Hacker News</h1>
+    </a>
+    <ul class="header-navbar">
+      <li class="header-navbar__item">
+        <a class="<%= @tab['newest'] %>" href="/newest">new</a>
+      </li>
+      <li class="header-navbar__item">
+        <a href="#">past</a>
+      </li>
+      <li class="header-navbar__item">
+        <a href="#">comments</a>
+      </li>
+      <li class="header-navbar__item">
+        <a class="<%= @tab['ask'] %>" href="/ask">ask</a>
+      </li>
+      <li class="header-navbar__item">
+        <a class="<%= @tab['show'] %>" href="/show">show</a>
+      </li>
+      <li class="header-navbar__item">
+        <a class="<%= @tab['jobs'] %>" href="/jobs">jobs</a>
+      </li>
+      <li class="header-navbar__item">
+        <a href="#">submit</a>
+      </li>
+    </ul>
+  </div>
+  <div class="header-login">
+    <a class="header-login__link" href="#">login</a>
+  </div>
+</header>

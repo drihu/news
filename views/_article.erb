@@ -1,0 +1,26 @@
+<article class="article">
+  <div class="article-header">
+    <img class="article-header__arrow" src="/img/rectangle.png" alt="hacker news list">
+    <a class="article-header__title" href="<%= article['url'] %>">
+      <%= article['title'] %>
+    </a>
+    <a class="article-header__host" href="#">
+      (<%= article['url'] ? article['url'][/\w+\.\w+(\.\w+)?/] : '#' %>)
+    </a>
+  </div>
+  <div class="article-metadata">
+    <span>
+      <%= article['points'] %> points
+    </span>
+    <span>
+      by <a class="article-metadata__link" href="#"><%= article['user'] %></a>
+    </span>
+    <a class="article-metadata__link" href="#">
+      <%= time_since_in_words(Time.at(article['time'])) %> hours ago
+    </a>
+    <span> | </span>
+    <a class="article-metadata__link" href="#">hide</a>
+    <span> | </span>
+    <a class="article-metadata__link" href="#"><%= article['descendants'] %> comments</a>
+  </div>
+</article>
