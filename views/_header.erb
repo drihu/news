@@ -1,34 +1,14 @@
 <header class="header">
-  <div class="header-content">
-    <a class="header-brand" href="/">
-      <img class="header-brand__logo" src="/img/logo.png" alt="Hacker News">
-      <h1 class="header-brand__title">Hacker News</h1>
+  <div class="container header__container">
+    <a class="brand" href="/">
+      <div class="brand-logo"></div>
+      <div class="brand-title">Home</div>
     </a>
-    <ul class="header-navbar">
-      <li class="header-navbar__item">
-        <a class="<%= @tab['newest'] %>" href="/newest">new</a>
-      </li>
-      <li class="header-navbar__item">
-        <a href="#">past</a>
-      </li>
-      <li class="header-navbar__item">
-        <a href="#">comments</a>
-      </li>
-      <li class="header-navbar__item">
-        <a class="<%= @tab['ask'] %>" href="/ask">ask</a>
-      </li>
-      <li class="header-navbar__item">
-        <a class="<%= @tab['show'] %>" href="/show">show</a>
-      </li>
-      <li class="header-navbar__item">
-        <a class="<%= @tab['jobs'] %>" href="/jobs">jobs</a>
-      </li>
-      <li class="header-navbar__item">
-        <a href="#">submit</a>
-      </li>
-    </ul>
-  </div>
-  <div class="header-login">
-    <a class="header-login__link" href="#">login</a>
+    <nav class="navbar">
+      <a class="navbar-link" href="/new">New</a>
+      <a class="navbar-link" href="/ask">Ask</a>
+      <a class="navbar-link" href="/show">Show</a>
+      <a class="navbar-link" href="/jobs">Jobs</a>
+    </nav>
   </div>
 </header>

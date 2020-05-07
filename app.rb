@@ -1,23 +1,19 @@
 require 'http'
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require_relative './app/helpers/helper'
+require_relative 'helpers/helper'
 
 helpers Helper
 
 get '/:path?' do |path|
   @tab = {}
-  if params['page'] && params['page'].to_i > 0
-    page = params['page'].to_i
-  else
-    page = 1
-  end
+  page = params.fetch('page', 1)
 
   case path
   when nil
     articles = HTTP.get("https://api.hnpwa.com/v0/news/#{page}.json").parse
-  when 'newest'
-    @tab['newest'] = 'active'
+  when 'new'
+    @tab['new'] = 'active'
     articles = HTTP.get("https://api.hnpwa.com/v0/newest/#{page}.json").parse
   when 'ask'
     @tab['ask'] = 'active'
@@ -30,6 +26,10 @@ get '/:path?' do |path|
     articles = HTTP.get("https://api.hnpwa.com/v0/jobs/#{page}.json").parse
   else
     halt(404, { 'Content-Type' => 'text/plain' }, 'Unknown.')
+  end
+
+  articles.each do |article|
+    article['host_url'] = "#{article['url'][/(https|http)/]}://#{article['domain']}"
   end
 
   erb(:home, locals: { articles: articles, page: page, path: path })

@@ -1,26 +1,23 @@
 <article class="article">
-  <div class="article-header">
-    <img class="article-header__arrow" src="/img/rectangle.png" alt="hacker news list">
-    <a class="article-header__title" href="<%= article['url'] %>">
+  <header class="article-header">
+    <a class="article-header__title" href="<%= article['url'] %>" target="_blank">
       <%= article['title'] %>
     </a>
-    <a class="article-header__host" href="#">
-      (<%= article['url'] ? article['url'][/\w+\.\w+(\.\w+)?/] : '#' %>)
+    <a class="article-header__host" href="<%= article['host_url'] %>">
+      (<%= article['domain'] %>)
     </a>
-  </div>
+  </header>
+
   <div class="article-metadata">
     <span>
-      <%= article['points'] %> points
+      By <a class="article-metadata__link" href="#"><%= article['user'] %></a>
     </span>
     <span>
-      by <a class="article-metadata__link" href="#"><%= article['user'] %></a>
-    </span>
-    <a class="article-metadata__link" href="#">
       <%= time_since_in_words(Time.at(article['time'])) %> hours ago
+    </span>
+    <span> | </span>
+    <a class="article-metadata__link" href="#">
+      <%= article['comments_count'] %> comments
     </a>
-    <span> | </span>
-    <a class="article-metadata__link" href="#">hide</a>
-    <span> | </span>
-    <a class="article-metadata__link" href="#"><%= article['descendants'] %> comments</a>
   </div>
 </article>
