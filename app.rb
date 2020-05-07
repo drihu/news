@@ -7,7 +7,7 @@ helpers Helper
 
 get '/:path?' do |path|
   @tab = {}
-  page = params.fetch('page', 1)
+  page = params.fetch('page', 1).to_i
 
   case path
   when nil
@@ -28,8 +28,9 @@ get '/:path?' do |path|
     halt(404, { 'Content-Type' => 'text/plain' }, 'Unknown.')
   end
 
-  articles.each do |article|
+  articles.each_with_index do |article, i|
     article['host_url'] = "#{article['url'][/(https|http)/]}://#{article['domain']}"
+    article['number'] = 30 * (page - 1) + i + 1
   end
 
   erb(:home, locals: { articles: articles, page: page, path: path })

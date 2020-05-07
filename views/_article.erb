@@ -1,11 +1,15 @@
 <article class="article">
+  <div class="article-number"><%= article['number'] %></div>
+
   <header class="article-header">
     <a class="article-header__title" href="<%= article['url'] %>" target="_blank">
       <%= article['title'] %>
     </a>
-    <a class="article-header__host" href="<%= article['host_url'] %>">
-      (<%= article['domain'] %>)
-    </a>
+    <% if article['domain'] %>
+      <a class="article-header__host" href="<%= article['host_url'] %>" target="_blank">
+        (<%= article['domain'] %>)
+      </a>
+    <% end %>
   </header>
 
   <div class="article-metadata">
