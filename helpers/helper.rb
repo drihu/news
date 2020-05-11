@@ -5,7 +5,7 @@ module Helper
   # since that provided time as a humanized string.
   # test_time = Time.now - (60 * 5) # 5 minutes ago
   # "#{time_since_in_words(test_time)} ago"
-  def time_since_in_words(date)
+  def time_since(date)
     TimeDifference.between(date, Time.now).humanize
   end
 end
