@@ -8,17 +8,15 @@
       <%= article['title'] %>
     </a>
     <% if article['domain'] %>
-      <a class="article-header__host" href="<%= article['host_url'] %>">
+      <a class="article-header__host" href="<%= article['domain_url'] %>">
         (<%= article['domain'] %>)
       </a>
     <% end %>
   </header>
 
   <section class="article-metadata">
-    <span>By <%= article['user'] %></span>
-    <span>
-      | <%= time_since(Time.at(article['time'])) %> ago |
-    </span>
+    <span>By <%= article['user'] %> |</span>
+    <span><%= time_since(Time.at(article['time'])) %> ago |</span>
     <span><%= article['comments_count'] %> comments</span>
   </section>
 </article>

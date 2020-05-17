@@ -1,8 +1,5 @@
 <main class="main">
   <div class="container main__container">
-    <% if articles.empty? %>
-      <div class="warning">There are no more articles</div>
-    <% end %>
     <% articles.each do |article| %>
       <%= erb(:_article, locals: { article: article }) %>
     <% end %>
