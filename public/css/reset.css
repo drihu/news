@@ -16,10 +16,6 @@ html {
   line-height: 1.125;
 }
 
-body {
-  min-height: 100vh;
-}
-
 a {
   color: inherit;
 }
@@ -39,6 +35,12 @@ ol, ul {
   width: 100%;
   margin: auto;
   padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
 }
 
 @media (min-width: 992px) {

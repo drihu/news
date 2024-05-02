@@ -5,6 +5,13 @@
   --white: #ffffff;
 }
 
+.app-viewport {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 /*------------------------------
 HEADER
 ------------------------------*/
@@ -70,9 +77,13 @@ HEADER
 
   & .navbar__link {
     display: block;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1.25rem;
     border-radius: 0.25rem;
     text-decoration: none;
+
+    @media (min-width: 768px) {
+      padding: 0.5rem 2rem;
+    }
 
     &:hover {
       background-color: var(--black);
@@ -97,9 +108,15 @@ ARTICLES
 
 .articles {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 3rem;
   padding-left: 0;
+
+  @media (min-width: 768px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
   @media (min-width: 992px) {
     & {
