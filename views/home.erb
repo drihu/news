@@ -5,5 +5,43 @@
       <%= erb(:_article, locals: { article: article }) %>
       <% end %>
     </ul>
+
+    <% if page_count > 1 %>
+      <nav class="pagination">
+        <ul class="pagination__links">
+          <% if page > 1 %>
+            <li>
+              <a class="pagination__link pagination__link--previous" href="<%= get_link(path, page - 1) %>">
+                Previous
+              </a>
+            </li>
+            <li>
+              <a class="pagination__link" href="<%= get_link(path, page - 1) %>">
+                <%= page - 1 %>
+              </a>
+            </li>
+          <% end %>
+
+          <li>
+            <a class="pagination__link pagination__link--active" href="#">
+              <%= page %>
+            </a>
+          </li>
+
+          <% if page < page_count %>
+            <li>
+              <a class="pagination__link" href="<%= get_link(path, page + 1) %>">
+                <%= page + 1 %>
+              </a>
+            </li>
+            <li>
+              <a class="pagination__link pagination__link--next" href="<%= get_link(path, page + 1) %>">
+                Next
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    <% end %>
   </div>
 </main>

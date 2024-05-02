@@ -87,6 +87,12 @@ ARTICLES
 
 .main {
   padding: 2rem 0;
+
+  & > .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 .articles {
@@ -141,6 +147,46 @@ ARTICLES
     color: var(--gray);
     font-size: 0.85rem;
     font-weight: 300;
+  }
+}
+
+.pagination {
+  & .pagination__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-left: 0;
+
+    & > li {
+      list-style-type: none;
+    }
+  }
+
+  & .pagination__link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    font-family: "Ubuntu";
+    font-size: 1rem;
+    font-weight: 400;
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  & .pagination__link--active {
+    background-color: var(--black);
+    border-color: var(--black);
+    color: var(--white);
+  }
+
+  & .pagination__link--previous {
+    border-radius: 0.25rem 0 0 0.25rem;
+  }
+
+  & .pagination__link--next {
+    border-radius: 0 0.25rem 0.25rem 0;
   }
 }
 

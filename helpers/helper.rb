@@ -38,4 +38,8 @@ module Helper
   def get_page_count(path: nil)
     PATHS[path][:api_page_count]
   end
+
+  def get_link(path, page)
+    "#{path}?page=#{page}"
+  end
 end
