@@ -1,7 +1,9 @@
 <main class="main">
-  <div class="container main__container">
-    <% articles.each do |article| %>
+  <div class="container">
+    <ul class="articles">
+      <% articles.each do |article| %>
       <%= erb(:_article, locals: { article: article }) %>
-    <% end %>
+      <% end %>
+    </ul>
   </div>
 </main>

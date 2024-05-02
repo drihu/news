@@ -1,22 +1,16 @@
-<article class="article">
-  <div class="article-number">
-    <%= article['number'] %>
-  </div>
+<li class="article">
+  <a class="article__title" href="<%= article['url'] %>" target="_blank">
+    <%= article['title'] %>
+  </a>
 
-  <header class="article-header">
-    <a class="article-header__title" href="<%= article['url'] %>">
-      <%= article['title'] %>
+  <% if article['domain'] %>
+    <a class="article__domain" href="<%= article['domain_url'] %>">
+      <%= article['domain'] %>
     </a>
-    <% if article['domain'] %>
-      <a class="article-header__host" href="<%= article['domain_url'] %>">
-        (<%= article['domain'] %>)
-      </a>
-    <% end %>
-  </header>
+  <% end %>
 
-  <section class="article-metadata">
-    <span>By <%= article['user'] %> |</span>
-    <span><%= time_since(Time.at(article['time'])) %> ago |</span>
-    <span><%= article['comments_count'] %> comments</span>
-  </section>
-</article>
+  <div class="article__metadata">
+    <p><%= article['time_ago'].capitalize %>, by <%= article['user'] %></p>
+    <p><%= article['comments_count'] %> comments</p>
+  </div>
+</li>
