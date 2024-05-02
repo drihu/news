@@ -29,6 +29,12 @@ ol, ul {
   padding-left: 2rem;
 }
 
+code {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+}
+
 /* Breakpoints and Container */
 
 .container {

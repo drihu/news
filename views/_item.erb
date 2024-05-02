@@ -1,0 +1,22 @@
+<article class="item <%= is_comment ? 'item--comment' : '' %>">
+  <div class="item__metadata">
+    By <span class="item__author"><%= item['user'] %></span>,
+    <%= item['time_ago'] %>
+  </div>
+
+  <div class="item__content">
+    <% get_lines(item['content']).each do |line| %>
+      <p><%= line %></p>
+    <% end %>
+  </div>
+
+  <% unless is_comment %>
+    <div class="item__comment-count"><%= item['comments'].length %> comments</div>
+  <% end %>
+
+  <% unless item['comments'].empty? %>
+    <% item['comments'].each do |comment| %>
+      <%= erb(:_item, locals: { item: comment, is_comment: true }) %>
+    <% end %>
+  <% end %>
+</article>

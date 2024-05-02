@@ -19,10 +19,7 @@ get /\/(new|ask|show|jobs)?/ do |path|
 end
 
 get '/item' do
-  id = params['id']
-  %{
-    <h1>#{id}</h1>
-    <div>I'm working on this. Please be patient.</div>
-    <a href="/">Go Home</a>
-  }
+  item = get_item(params['id'])
+
+  erb(:item_page, locals: { item: item })
 end

@@ -43,4 +43,12 @@ module Helper
   def get_link(path, page)
     "#{path}?page=#{page}"
   end
+
+  def get_item(id)
+    item = HTTP.get("#{API_BASE_URL}/item/#{id}.json").parse
+  end
+
+  def get_lines(content)
+    lines = content.gsub('\n', ' ').split('<p>').select { |line| not line.empty? }
+  end
 end

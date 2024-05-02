@@ -1,0 +1,6 @@
+<main class="main">
+  <div class="container item-page">
+    <h1 class="item-page__title"><%= item['title'] %></h1>
+    <%= erb(:_item, locals: { item: item, is_comment: false }) %>
+  </div>
+</main>

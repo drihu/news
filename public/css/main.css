@@ -1,7 +1,8 @@
 :root {
   --black: #18191a;
+  --light-black: #55585f;
   --gray: #828282;
-  --light-gray: #f0f2f2;
+  --light-gray: #c8c8ca;
   --white: #ffffff;
 }
 
@@ -97,13 +98,13 @@ ARTICLES
 ------------------------------*/
 
 .main {
-  padding: 2rem 0;
+  padding: 3rem 0;
+}
 
-  & > .container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .articles {
@@ -204,6 +205,79 @@ ARTICLES
 
   & .pagination__link--next {
     border-radius: 0 0.25rem 0.25rem 0;
+  }
+}
+
+/*------------------------------
+PAGE & ITEM
+------------------------------*/
+
+.item-page {
+  & > .item > .item--comment {
+    margin-left: 0;
+  }
+}
+
+.item-page__title {
+  margin-bottom: 3rem;
+  color: var(--black);
+  font-family: "Ubuntu";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.item {
+  font-size: 1.25rem;
+
+  & .item__metadata {
+    margin-bottom: 3rem;
+    color: var(--light-black);
+    font-family: "Ubuntu";
+    font-weight: 300;
+  }
+
+  & .item__author {
+    font-weight: 700;
+  }
+
+  & .item__content {
+    margin-bottom: 3rem;
+    color: var(--black);
+    font-family: "Ubuntu";
+    font-weight: 400;
+    line-height: 2;
+
+    & p {
+      margin-bottom: 1rem;
+    }
+
+    & p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & .item__comment-count {
+    margin-bottom: 3rem;
+    color: var(--gray);
+    font-family: "Ubuntu";
+    font-weight: 300;
+  }
+}
+
+.item--comment {
+  border-left: 1px solid var(--light-gray);
+  padding-left: 0.5rem;
+  margin-left: 2rem;
+  font-size: 0.875rem;
+
+  & .item__metadata {
+    margin-bottom: 1rem;
+  }
+
+  & .item__content {
+    margin-bottom: 2rem;
+    line-height: 1.5;
   }
 }
 
