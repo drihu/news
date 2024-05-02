@@ -6,12 +6,13 @@ helpers Helper
 
 get /\/(new|ask|show|jobs)?/ do |path|
   page = params.fetch('page', 1).to_i
-  max_pages = get_max_pages(path: path)
+  page_count = get_page_count(path: path)
   articles = get_articles(path: path, page: page)
+
   erb(:home, locals: {
     articles: articles,
     page: page,
-    max_pages: max_pages,
+    page_count: page_count,
   })
 end
 
