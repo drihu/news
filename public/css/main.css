@@ -1,36 +1,82 @@
 :root {
   --black: #18191a;
   --gray: #828282;
+  --white: #ffffff;
 }
 
 /*------------------------------
 HEADER
 ------------------------------*/
+
 .header {
-  background-color: #FFFFFF;
-  border-top: 7px solid #6F8AE8;
+  padding: 1rem 0;
+  background-color: var(--white);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  & > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    & > .container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
-.header__container {
+
+.brand {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-}
-.navbar-link {
-  display: flex;
+  flex-direction: row;
   align-items: center;
-  height: 60px;
-  padding: 0 10px;
-  color: #34495E;
-  font-weight: 300;
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+  background-color: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.25rem;
+  text-decoration: none;
+
+  & .brand__logo {
+    width: 2.5rem;
+    height: auto;
+  }
+
+  & .brand__title {
+    color: var(--black);
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: "Ubuntu";
+  }
 }
-@media (min-width: 960px) {
-  .navbar-link {
-    padding: 0 20px;
+
+.navbar {
+  font-family: "Ubuntu";
+  font-size: 1rem;
+  font-weight: 500;
+
+  & .navbar__links {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+
+    & > li {
+      list-style-type: none;
+    }
+  }
+
+  & .navbar__link {
+    display: block;
+    padding: 0.5rem 2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--black);
+      color: var(--white);
+    }
   }
 }
 
