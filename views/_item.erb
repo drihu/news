@@ -1,6 +1,8 @@
 <article class="item <%= is_comment ? 'item--comment' : '' %>">
   <div class="item__metadata">
-    By <span class="item__author"><%= item['user'] %></span>,
+    <% if item['user'] %>
+      By <span class="item__author"><%= item['user'] %></span>,
+    <% end %>
     <%= item['time_ago'] %>
   </div>
 

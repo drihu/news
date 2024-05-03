@@ -10,7 +10,12 @@
   <% end %>
 
   <div class="article__metadata">
-    <p><%= article['time_ago'].capitalize %>, by <%= article['user'] %></p>
+    <p>
+      <%= article['time_ago'] %>
+      <% if article['user'] %>
+        by <%= article['user'] %>
+      <% end %>
+    </p>
     <p><%= article['comments_count'] %> comments</p>
   </div>
 </li>
