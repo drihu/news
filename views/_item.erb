@@ -4,11 +4,20 @@
     <%= item['time_ago'] %>
   </div>
 
-  <div class="item__content">
-    <% get_lines(item['content']).each do |line| %>
-      <p><%= line %></p>
-    <% end %>
-  </div>
+  <% if !item['content'].empty? %>
+    <div class="item__content">
+      <% get_lines(item['content']).each do |line| %>
+        <p><%= line %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if item['domain'] && !item['domain'].empty? %>
+    <div class="item__source">
+      URL:
+      <a href="<%= item['url'] %>" target="_blank"><%= item['domain'] %></a>
+    </div>
+  <% end %>
 
   <% unless is_comment %>
     <div class="item__comment-count"><%= item['comments'].length %> comments</div>

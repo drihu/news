@@ -241,6 +241,13 @@ PAGE & ITEM
     font-weight: 700;
   }
 
+  & .item__source {
+    margin-bottom: 3rem;
+    color: var(--black);
+    font-family: "Ubuntu";
+    font-weight: 400;
+  }
+
   & .item__content {
     margin-bottom: 3rem;
     color: var(--black);

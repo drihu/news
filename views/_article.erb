@@ -1,10 +1,10 @@
 <li class="article">
-  <a class="article__title" href="<%= article['url'] %>" target="_blank">
+  <a class="article__title" href="/item?id=<%= article['id'] %>">
     <%= article['title'] %>
   </a>
 
   <% if article['domain'] %>
-    <a class="article__domain" href="<%= article['domain_url'] %>" target="_blank">
+    <a class="article__domain" href="<%= article['url'] %>" target="_blank">
       <%= article['domain'] %>
     </a>
   <% end %>
