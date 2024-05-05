@@ -1,0 +1,21 @@
+<li class="feed-item">
+  <a class="feed-item__title" href="/item?id=<%= feed_item['id'] %>">
+    <%= feed_item['title'] %>
+  </a>
+
+  <% if feed_item['domain'] %>
+    <a class="feed-item__domain" href="<%= feed_item['url'] %>" target="_blank">
+      <%= feed_item['domain'] %>
+    </a>
+  <% end %>
+
+  <div class="feed-item__metadata">
+    <div>
+      <%= feed_item['time_ago'] %>
+      <% if feed_item['user'] %>
+        by <%= feed_item['user'] %>
+      <% end %>
+    </div>
+    <div><%= feed_item['comments_count'] %> comments</div>
+  </div>
+</li>

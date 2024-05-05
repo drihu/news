@@ -16,10 +16,12 @@ get /\/(new|ask|show|jobs)?/ do |path|
   path = "/#{path}" || '/'
   page = params.fetch('page', 1).to_i
   page_count = get_page_count(path: path)
-  articles = get_articles(path: path, page: page)
+  feed_title = get_feed_title(path)
+  feed_items = get_feed_items(path: path, page: page)
 
-  erb(:home, locals: {
-    articles: articles,
+  erb(:feed_page, locals: {
+    feed_title: feed_title,
+    feed_items: feed_items,
     page: page,
     page_count: page_count,
     path: path,

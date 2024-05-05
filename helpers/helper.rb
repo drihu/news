@@ -5,34 +5,43 @@ module Helper
 
   PATHS = {
     '/' => {
+      feed_title: 'Popular',
       api_path: '/news',
-      api_page_count: 10
+      api_page_count: 10,
     },
     '/new' => {
+      feed_title: 'New',
       api_path: '/newest',
-      api_page_count: 10
+      api_page_count: 10,
     },
     '/ask' => {
+      feed_title: 'Ask',
       api_path: '/ask',
-      api_page_count: 2
+      api_page_count: 2,
     },
     '/show' => {
+      feed_title: 'Show',
       api_path: '/show',
-      api_page_count: 2
+      api_page_count: 2,
     },
     '/jobs' => {
+      feed_title: 'Jobs',
       api_path: '/jobs',
-      api_page_count: 1
+      api_page_count: 1,
     }
   }
 
-  def get_articles(path: '/', page: 1)
-    articles = HTTP.get("#{API_BASE_URL}#{PATHS[path][:api_path]}/#{page}.json").parse
+  def get_feed_title(path)
+    feed_title = PATHS[path][:feed_title]
+  end
 
-    articles.each do |article|
-      scheme = article['url'][/(https|http)/]
-      article['domain_url'] = "#{scheme}://#{article['domain']}"
-      article['title'] = escape_html article['title']
+  def get_feed_items(path: '/', page: 1)
+    feed_items = HTTP.get("#{API_BASE_URL}#{PATHS[path][:api_path]}/#{page}.json").parse
+
+    feed_items.each do |feed_item|
+      scheme = feed_item['url'][/(https|http)/]
+      feed_item['domain_url'] = "#{scheme}://#{feed_item['domain']}"
+      feed_item['title'] = escape_html feed_item['title']
     end
   end
 

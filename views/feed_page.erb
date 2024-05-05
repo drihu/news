@@ -1,8 +1,10 @@
 <main class="main">
   <div class="container feed">
-    <ul class="articles">
-      <% articles.each do |article| %>
-      <%= erb(:_article, locals: { article: article }) %>
+    <h2 class="feed__title"><%= feed_title %></h2>
+
+    <ul class="feed-items">
+      <% feed_items.each do |feed_item| %>
+      <%= erb(:_feed_item, locals: { feed_item: feed_item }) %>
       <% end %>
     </ul>
 
