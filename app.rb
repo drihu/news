@@ -2,7 +2,15 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require_relative 'helpers/helper'
 
+use Rack::Deflater
+
 helpers Helper
+
+set :static_cache_control, [:public, :max_age => 86400]
+
+before do
+  cache_control :public, :must_revalidate, :max_age => 300
+end
 
 get /\/(new|ask|show|jobs)?/ do |path|
   path = "/#{path}" || '/'

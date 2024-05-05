@@ -10,12 +10,12 @@
   <% end %>
 
   <div class="article__metadata">
-    <p>
+    <div>
       <%= article['time_ago'] %>
       <% if article['user'] %>
         by <%= article['user'] %>
       <% end %>
-    </p>
-    <p><%= article['comments_count'] %> comments</p>
+    </div>
+    <div><%= article['comments_count'] %> comments</div>
   </div>
 </li>
